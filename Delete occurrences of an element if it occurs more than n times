@@ -1,0 +1,20 @@
+function deleteNth(arr,n){
+let newArr = [];
+let obj = {};
+for (var i = 0; i < arr.length; i++) {
+  let current = arr[i];
+  if (!obj[current]) {
+    obj[current] = 1;
+  } else {
+    obj[current]++;
+  }
+  if (obj[current] <= n) {
+    newArr.push(current);
+  }
+}
+
+  return newArr;
+}
+
+const output = deleteNth([20,37,20,21], 1);
+console.log(output);
