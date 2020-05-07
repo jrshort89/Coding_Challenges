@@ -1,0 +1,17 @@
+function twosDifference(input){
+  let answer = [];
+for (var i = 0; i < input.length; i++) {
+  let arr = input.slice();
+  arr.splice(i, 1);
+  let newArr = arr;
+  for (var j = 0; j < newArr.length; j++) {
+    if (input[i] + 2 === newArr[j]) {
+      answer.push([input[i], newArr[j]]);
+    }
+  }
+}
+return answer;
+}
+
+const output = twosDifference([1,2,3,4]);
+console.log(output);
