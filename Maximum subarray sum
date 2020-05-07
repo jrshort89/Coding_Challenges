@@ -1,0 +1,15 @@
+var maxSequence = function(arr) {
+let greatest = 0;
+let sum = 0;
+for (let i = 0; i < arr.length; i++) {
+  let newArr = arr.slice(i);
+  sum = 0;
+  for (let j = 0; j < newArr.length; j++) {
+  sum += newArr[j];
+  if (sum > greatest) {
+    greatest = sum;
+  }
+}
+}
+return greatest;
+}
