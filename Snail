@@ -1,0 +1,32 @@
+function snail(array) {
+let merge = [].concat.apply([], array).length;
+let right = array[0].length;
+let column = 0;
+let up = array.length - 1;
+let row = 0;
+let arr = [];
+while (arr.length < merge) {
+  for (let i = column; i < right; i++) {
+    arr.push(array[column][i]);
+  }
+  row++;
+  for (let j = row; j < up; j++) {
+    arr.push(array[j][right - 1]);
+  }
+  right--;
+  for (let k = right; k >= column; k--) {
+    if (right !== column) {
+    arr.push(array[up][k]);
+  }
+  }
+  up--;
+  for (let l = up; l >= row; l--) {
+    arr.push(array[l][column]);
+  }
+  column++;
+}
+  return arr;
+}
+
+let output = snail([[1, 2, 3], [4, 5, 6], [7, 8, 9]]);
+console.log(output)
