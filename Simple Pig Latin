@@ -1,0 +1,14 @@
+function pigIt(str){
+let splitArr = str.split(" ");
+let firstLetter = '';
+for (let i = 0; i < splitArr.length; i++) {
+  firstLetter = splitArr[i][0];
+  if (!/[?!.]/g.test(splitArr[i])) {
+  splitArr[i] = splitArr[i].replace(firstLetter, "") + firstLetter + 'ay';
+}
+}
+return splitArr.join(" ");
+}
+
+let output = pigIt('Pig latin is cool !');
+console.log(output);
