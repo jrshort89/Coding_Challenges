@@ -5,3 +5,7 @@ function songDecoder(song){
       a.splice(i, 1)}
       } return a.join(' ');
   } 
+
+function songDecoder(song){
+  return song.replace(/(WUB)+/g," ").trim();
+}
