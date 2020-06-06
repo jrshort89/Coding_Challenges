@@ -1,0 +1,16 @@
+function productFib(prod){
+  let fib = [0, 1];
+  let count = 1;
+  let answer;
+  while (fib[count] * fib[count - 1] <= prod ) {
+    if (fib[count] * fib[count - 1] === prod)  {
+      answer = [fib[count - 1], fib[count], true];
+      return answer;
+    }
+    if (fib[count] * fib[count - 1] !== prod) {
+      fib.push(fib[count] + fib[count - 1]);
+      count++;
+    }
+  }
+  return [fib[count - 1], fib[count], false];
+}
