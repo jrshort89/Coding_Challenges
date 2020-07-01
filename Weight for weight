@@ -1,0 +1,26 @@
+function orderWeight(strng) {
+arr = strng.split(" ");
+for (let i = 0; i < arr.length; i++) {
+  if (strng.length !== 0) {
+    let current = arr[i].split("").reduce((a, b) => +a + +b, 0);
+    arr[i] = [+arr[i], +current];
+    } else {
+    return '';
+    }
+}
+arr.sort((a, b) => {
+    if (a[1] > b[1]) {
+        return 1;
+    }
+    if (a[1] < b[1]) {
+        return -1;
+    }
+    if (a[1] === b[1]) {
+        return a[0].toString().localeCompare(b[0].toString()) 
+    }
+})
+return arr.map(x => x[0].toString()).join(" ").trim();
+}
+
+let output = orderWeight("2000 10003 1234000 44444444 9999 11 11 22 123");
+console.log(output === '11 11 2000 10003 22 123 1234000 44444444 9999');
