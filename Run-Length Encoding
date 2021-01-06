@@ -1,0 +1,24 @@
+function runLengthEncoding(string) {
+  // Write your code here.
+	let ans = '';
+	let count = 0;
+	let index = 0;
+	while (index < string.length) {
+		if (count === 9) {
+				count = 1;
+				ans += `9${string[index]}`;
+			  if (index === string.length - 1) ans +=`1${string[index]}`
+				index++;
+			  continue;
+			}
+		if (string[index] !== string[index + 1]) {
+				ans += `${count + 1}${string[index]}`;			
+		  	count = 0;
+			  index++;
+			continue;
+		}
+		count++;
+		index++;
+	}
+	return ans;
+}
