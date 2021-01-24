@@ -1,0 +1,24 @@
+let trap = function(height) {
+    let total = 0;
+    let leftMax = 0;
+    for (let i = 0; i < height.length; i++) {
+        let left = i;
+        let right = i + 1;
+        let max = Math.max(...height.slice(i, height.length));
+        max = height.findIndex(num => num === max)
+        if (height[i] > height[leftMax]) leftMax = i;
+        while (height[left] < height[left - 1] && left > 0) {
+            left--;
+        }
+        while (height[right] < height[right + 1] && right < height.length) {
+            right++;
+        }
+        if (height[right] < height[max]) right = max;
+        if (height[left] < height[leftMax]) left = leftMax;
+        if (height[left] > height[i] && height[right] > height[i]) {
+            let lowPeak = height[left] < height[right] ? height[left] : height[right];
+            total += (lowPeak - height[i]);
+        }
+    }
+    return total;
+};
